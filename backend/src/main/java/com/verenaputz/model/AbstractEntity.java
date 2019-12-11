@@ -1,12 +1,18 @@
 package com.verenaputz.model;
 
+import javax.persistence.Column;
 import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
 import java.util.Date;
 
+@MappedSuperclass
 public class AbstractEntity {
     @Id
+    @Column(name="id")
     private long id;
+    @Column(name="create_time")
     private Date createTime;
+    @Column(name="modified_time")
     private Date modifiedTime;
 
     public AbstractEntity(){
@@ -42,4 +48,6 @@ public class AbstractEntity {
     public void setModifiedTime(Date modifiedTime) {
         this.modifiedTime = modifiedTime;
     }
+
+
 }

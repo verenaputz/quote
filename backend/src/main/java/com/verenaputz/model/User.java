@@ -1,11 +1,23 @@
 package com.verenaputz.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
-public class User extends AbstractEntity{
+@Entity
+@Table(name="user")
+public class User extends AbstractEntity implements Serializable {
 
+    @Column(name="name")
     private String name;
+    @Column(name="password")
     private String password;
+    @OneToMany(mappedBy = "creator")
+    private List<Quote> quotes;
 
     public User (){
 

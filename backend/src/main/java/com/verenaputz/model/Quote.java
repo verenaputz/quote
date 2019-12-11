@@ -1,11 +1,19 @@
 package com.verenaputz.model;
 
+import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
-public class Quote extends AbstractEntity{
+@Entity
+@Table(name="quote")
+public class Quote extends AbstractEntity implements Serializable {
 
+    @Column(name="zitat")
     private String zitat;
+    @JoinColumn(name="creator_id")
+    @ManyToOne
     private User creator;
+    @Column(name="author")
     private String author;
 
     public Quote(){
