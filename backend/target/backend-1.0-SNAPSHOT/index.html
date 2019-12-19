@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+</head>
+<body>
+    <div class="container">
+
+    </div>
+
+<script>
+
+    function request() {
+        fetch('api/quotes', {
+            method: 'GET',
+            mode: 'no-cors'
+        }).then((response) => {
+            if (response.ok) {
+                return response.json();
+            } else {
+                throw new Error('Fehler');
+            }
+        }).then((json)=>{
+            console.log('Hallo');
+            let z = json[1].zitat;
+            document.querySelector('.container').innerText=z;
+
+        }).catch((err)=>{
+
+        });
+    }
+
+    request();
+
+
+</script>
+</body>
+</html>

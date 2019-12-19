@@ -28,6 +28,10 @@
                             <directory>src/main/</directory>
                             <filtering>true</filtering>
                         </resource>
+                        <resource>
+                            <directory>../frontend</directory>
+                            <filtering>true</filtering>
+                        </resource>
                     </webResources>
                 </configuration>
             </plugin>

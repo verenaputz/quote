@@ -12,9 +12,11 @@ public class DatabaseAccessor {
     private EntityManager entityManager;
 
     public DatabaseAccessor(){
+        // Persistence unit name kommt aus der persistence.xml
         this.entityManagerFactory = Persistence.createEntityManagerFactory("Quotes");
     }
 
+    //JPQL
     public List<Quote> getQuotes(){
         String s = "SELECT q FROM Quote q";
         this.entityManager = this.entityManagerFactory.createEntityManager();
